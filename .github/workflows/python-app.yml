@@ -53,9 +53,9 @@ jobs:
         run: |
           buildozer -v android debug
 
-      # Загрузка APK как артефакт
+      # Загрузка APK как артефакт (используется v4)
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Обновленная версия
         with:
           name: apk-file
           path: bin/*.apk

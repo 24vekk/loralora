@@ -30,7 +30,6 @@ jobs:
       # Настройка Buildozer
       - name: Initialize Buildozer
         run: |
-          cp ${{ github.workspace }}/*.py ./
           echo "[app]" > buildozer.spec
           echo "title = LoRa Messenger" >> buildozer.spec
           echo "package.name = lora_messenger" >> buildozer.spec
@@ -53,9 +52,9 @@ jobs:
         run: |
           buildozer -v android debug
 
-      # Загрузка APK как артефакт (используется v4)
+      # Загрузка APK как артефакт
       - name: Upload APK
-        uses: actions/upload-artifact@v4  # Обновленная версия
+        uses: actions/upload-artifact@v4
         with:
           name: apk-file
           path: bin/*.apk
